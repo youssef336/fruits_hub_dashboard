@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_text_feild.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/image_feild.dart';
+import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/feature_product.dart';
 
 class AddProductViewBody extends StatefulWidget {
   const AddProductViewBody({super.key});
@@ -44,7 +45,9 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 maxLines: 5,
               ),
               SizedBox(height: 16),
-              ImageFeild(),
+              FeatureProductWidget(onChanged: (value) {}),
+              SizedBox(height: 16),
+              ImageFeild(onImageSelected: (image) {}),
             ],
           ),
         ),
