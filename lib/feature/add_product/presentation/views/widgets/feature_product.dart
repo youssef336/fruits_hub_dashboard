@@ -16,9 +16,19 @@ class _FeatureProductWidgetState extends State<FeatureProductWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start, // Centers children vertically
       children: [
+        Expanded(
+          child: Text(
+            'Is Feature Product ?',
+            style: AppTextStyles.bodyBaseBold.copyWith(
+              fontWeight: FontWeight.w500,
+              color: Colors.grey,
+            ),
+            textAlign: TextAlign.left,
+          ),
+        ),
+        SizedBox(width: 8),
         CustomChekBox(
           onChanged: (value) {
             isTermsAccepted = value;
@@ -28,26 +38,6 @@ class _FeatureProductWidgetState extends State<FeatureProductWidget> {
           isChecked: isTermsAccepted,
         ),
         const SizedBox(width: 16),
-        SizedBox(
-          width:
-              MediaQuery.of(context).size.width - (KhorzontalPadding * 2) - 48,
-          child: Text.rich(
-            TextSpan(
-              children: [
-                TextSpan(
-                  text: "is product Fearures ?\n",
-                  style: AppTextStyles.bodySmallSemibold.copyWith(
-                    height: 1,
-                    fontSize: 16,
-                    color: const Color(0xFF949D9E) /* Grayscale-600 */,
-                  ),
-                ),
-              ],
-            ),
-
-            textAlign: TextAlign.left,
-          ),
-        ),
       ],
     );
   }
