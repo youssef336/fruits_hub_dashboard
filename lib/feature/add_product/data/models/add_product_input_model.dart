@@ -35,7 +35,6 @@ class AddProductInputmodel {
     'name': name,
     'description': description,
     'price': price,
-    'image': image,
     'code': code,
     'isfeatured': isfeatured,
     'imageurl': imageurl,

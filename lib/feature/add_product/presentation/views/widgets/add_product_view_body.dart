@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_buttom.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_text_feild.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:fruits_hub_dashboard/feature/add_product/presentation/manager/add_product_cubit/add_product_cubit.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/image_feild.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/feature_product.dart';
 
@@ -92,6 +94,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                         image: image!,
                         isfeatured: isFeatureProduct,
                       );
+                      context.read<AddProductCubit>().addProduct(product);
                     }
                   } else {
                     snowError(context);
