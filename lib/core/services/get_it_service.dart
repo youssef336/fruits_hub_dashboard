@@ -1,0 +1,17 @@
+import 'package:fruits_hub_dashboard/core/repos/image_repo/image_repo.dart';
+import 'package:fruits_hub_dashboard/core/repos/image_repo/image_repo_impl.dart';
+import 'package:fruits_hub_dashboard/core/repos/product_repo/product_repo.dart';
+import 'package:fruits_hub_dashboard/core/repos/product_repo/product_repo_impl.dart';
+import 'package:fruits_hub_dashboard/core/services/file_storage.dart';
+import 'package:fruits_hub_dashboard/core/services/storage_service.dart';
+import 'package:get_it/get_it.dart';
+
+final getIt = GetIt.instance;
+
+void setupGetIt() {
+  getIt.registerLazySingleton<StorageService>(() => FileStorage());
+  getIt.registerLazySingleton<ImageRepo>(
+    () => ImageRepoImpl(getIt.get<StorageService>()),
+  );
+  getIt.registerLazySingleton<AddProductRepo>(() => AddProductRepoImpl());
+}
