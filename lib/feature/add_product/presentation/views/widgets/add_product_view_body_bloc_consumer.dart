@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_dashboard/core/helper_functions/build_bar.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_modal_progress_hub.dart';
+import 'package:fruits_hub_dashboard/feature/add_product/presentation/manager/add_product_cubit/add_product_cubit.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/manager/add_product_cubit/add_product_state.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/add_product_view_body.dart';
 
@@ -10,7 +11,7 @@ class AddProductViewBodyBlocConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer(
+    return BlocConsumer<AddProductCubit, AddProductState>(
       listener: (context, state) {
         if (state is AddProductfailure) {
           buildBar(context, state.message);

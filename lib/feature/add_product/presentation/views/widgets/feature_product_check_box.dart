@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/core/utils/text_styles.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/custom_chek_box.dart';
 
-class FeatureProductWidget extends StatefulWidget {
-  const FeatureProductWidget({super.key, required this.onChanged});
+class FeatureProductCheckBox extends StatefulWidget {
+  const FeatureProductCheckBox({super.key, required this.onChanged});
   final ValueChanged<bool> onChanged;
   @override
-  State<FeatureProductWidget> createState() => _FeatureProductWidgetState();
+  State<FeatureProductCheckBox> createState() => _FeatureProductCheckBoxState();
 }
 
-class _FeatureProductWidgetState extends State<FeatureProductWidget> {
+class _FeatureProductCheckBoxState extends State<FeatureProductCheckBox> {
   bool isTermsAccepted = false;
 
   @override

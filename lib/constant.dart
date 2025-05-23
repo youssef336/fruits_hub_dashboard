@@ -17,4 +17,4 @@ const KisBoardingViewSeen = 'isBoardingViewSeen';
 
 const KUserData = 'userData';
 
-const Fruit_Hup_app = 'D:\Me\flutter\Done\fruits_hub_app';
+const Fruit_Hup_app = 'D:Me\flutterDone\fruits_hub_app';

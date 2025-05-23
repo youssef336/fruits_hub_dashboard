@@ -10,9 +10,20 @@ class AddProductInputmodel {
   final String code;
   final bool isfeatured;
   String? imageurl;
+  final int experationMonths;
+  final bool isOrganic;
+  final int numbersOfCalories;
+  final int unitAmount;
+  final num averageRating = 0;
+  final num ratingCount = 0;
 
   AddProductInputmodel({
+    required this.experationMonths,
+
+    required this.numbersOfCalories,
+    required this.unitAmount,
     required this.name,
+    required this.isOrganic,
     required this.description,
     required this.price,
     required this.image,
@@ -22,7 +33,12 @@ class AddProductInputmodel {
   });
   factory AddProductInputmodel.fromEntity(AddProductInputEntity entity) {
     return AddProductInputmodel(
+      isOrganic: entity.isOrganic,
       name: entity.name,
+      experationMonths: entity.experationMonths,
+      numbersOfCalories: entity.numbersOfCalories,
+      unitAmount: entity.unitAmount,
+
       description: entity.description,
       price: entity.price,
       image: entity.image,
@@ -38,5 +54,9 @@ class AddProductInputmodel {
     'code': code,
     'isfeatured': isfeatured,
     'imageurl': imageurl,
+    'experationMonths': experationMonths,
+    'isOrganic': isOrganic,
+    'numbersOfCalories': numbersOfCalories,
+    'unitAmount': unitAmount,
   };
 }
