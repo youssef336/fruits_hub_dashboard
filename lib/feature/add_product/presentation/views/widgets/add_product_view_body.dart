@@ -119,6 +119,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                       formKey.currentState!.save();
                       AddProductInputEntity product = AddProductInputEntity(
                         name: name,
+                        reviews: [],
                         experationMonths: exparationMonth.toInt(),
                         numbersOfCalories: numberOfCalories.toInt(),
                         unitAmount: unitAmount.toInt(),
