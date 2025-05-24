@@ -21,6 +21,6 @@ const Fruit_Hup_app = 'D:Me\flutterDone\fruits_hub_app';
 
 const KsupabaseURL = 'https://fonqustkspmorcesnhes.supabase.co';
 const KsupabaseAnonKey =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZvbnF1c3Rrc3Btb3JjZXNuaGVzIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NzczNDM0MiwiZXhwIjoyMDYzMzEwMzQyfQ.qEzafvMXG5_MfLzIaGQ77K5DyRC8SQr0RDAvISuZS40';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZvbnF1c3Rrc3Btb3JjZXNuaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzQzNDIsImV4cCI6MjA2MzMxMDM0Mn0.nRn33_OYo87vOEvnMixWNVaPZMiuJS8NMYlMsIwSYDg';
 
 const KsupabaseBucket = 'Fruits_images';
