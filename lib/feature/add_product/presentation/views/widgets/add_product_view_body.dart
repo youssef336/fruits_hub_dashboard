@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_buttom.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_text_feild.dart';
-import 'package:fruits_hub_dashboard/feature/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:fruits_hub_dashboard/feature/add_product/domain/entities/product_entity.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/manager/add_product_cubit/add_product_cubit.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/feature_product_check_box.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/widgets/image_feild.dart';
@@ -117,7 +117,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   if (image != null) {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      AddProductInputEntity product = AddProductInputEntity(
+                      ProductEntity product = ProductEntity(
                         name: name,
                         reviews: [],
                         experationMonths: exparationMonth.toInt(),

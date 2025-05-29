@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_hub_dashboard/constant.dart';
 import 'package:fruits_hub_dashboard/core/helper_functions/build_bar.dart';
-import 'package:fruits_hub_dashboard/core/services/supabase_storage.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_modal_progress_hub.dart';
 import 'package:fruits_hub_dashboard/feature/auth/presentation/manager/Login_cubit/login_cubit.dart';
 import 'package:fruits_hub_dashboard/feature/auth/presentation/manager/Login_cubit/login_state.dart';

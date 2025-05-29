@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:fruits_hub_dashboard/constant.dart';
 
 import 'package:fruits_hub_dashboard/core/services/custom_bolc_observer.dart';
 import 'package:fruits_hub_dashboard/core/services/get_it_service.dart';

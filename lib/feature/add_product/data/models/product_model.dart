@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:fruits_hub_dashboard/feature/add_product/data/models/review_model.dart';
-import 'package:fruits_hub_dashboard/feature/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:fruits_hub_dashboard/feature/add_product/domain/entities/product_entity.dart';
 
-class AddProductInputmodel {
+class Productmodel {
   final String name;
   final String description;
   final num price;
@@ -15,11 +15,12 @@ class AddProductInputmodel {
   final bool isOrganic;
   final int numbersOfCalories;
   final int unitAmount;
+  final int Selligcount;
   final num averageRating = 0;
   final num ratingCount = 0;
   final List<ReviewModel> reviews;
 
-  AddProductInputmodel({
+  Productmodel({
     required this.experationMonths,
     required this.reviews,
     required this.numbersOfCalories,
@@ -29,12 +30,13 @@ class AddProductInputmodel {
     required this.description,
     required this.price,
     required this.image,
+    this.Selligcount = 0,
     required this.code,
     required this.isfeatured,
     this.imageurl,
   });
-  factory AddProductInputmodel.fromEntity(AddProductInputEntity entity) {
-    return AddProductInputmodel(
+  factory Productmodel.fromEntity(ProductEntity entity) {
+    return Productmodel(
       reviews: entity.reviews.map((e) => ReviewModel.fromEntity(e)).toList(),
       isOrganic: entity.isOrganic,
       name: entity.name,
@@ -54,6 +56,7 @@ class AddProductInputmodel {
     'name': name,
     'description': description,
     'price': price,
+    'Selligcount': Selligcount,
     'code': code,
     'isfeatured': isfeatured,
     'imageurl': imageurl,
