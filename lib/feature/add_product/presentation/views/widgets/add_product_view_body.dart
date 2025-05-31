@@ -21,7 +21,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
-  late String name, code, description;
+  late String nameEn, code, description, nameAr;
   late num price, exparationMonth, numberOfCalories, unitAmount;
   File? image;
   bool isFeatureProduct = false;
@@ -39,9 +39,18 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
             children: [
               CustomTextFormFeild(
                 onSaved: (p0) {
-                  name = p0!;
+                  nameEn = p0!;
                 },
-                hintText: 'Product Name',
+                hintText: 'Product Name in English',
+                textInputType: TextInputType.text,
+              ),
+
+              SizedBox(height: 16),
+              CustomTextFormFeild(
+                onSaved: (p0) {
+                  nameAr = p0!;
+                },
+                hintText: 'Product Name in Arabic',
                 textInputType: TextInputType.text,
               ),
               SizedBox(height: 16),
@@ -52,6 +61,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Product Price',
                 textInputType: TextInputType.number,
               ),
+              SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   exparationMonth = num.parse(p0!);
@@ -81,7 +91,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   code = p0!.toLowerCase();
                 },
                 hintText: 'Product code',
-                textInputType: TextInputType.number,
+                textInputType: TextInputType.text,
               ),
               SizedBox(height: 16),
               CustomTextFormFeild(
@@ -118,7 +128,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                       ProductEntity product = ProductEntity(
-                        name: name,
+                        nameAr: nameAr,
+                        nameEn: nameEn,
                         reviews: [],
                         experationMonths: exparationMonth.toInt(),
                         numbersOfCalories: numberOfCalories.toInt(),

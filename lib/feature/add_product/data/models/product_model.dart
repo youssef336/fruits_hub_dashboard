@@ -4,7 +4,9 @@ import 'package:fruits_hub_dashboard/feature/add_product/data/models/review_mode
 import 'package:fruits_hub_dashboard/feature/add_product/domain/entities/product_entity.dart';
 
 class Productmodel {
-  final String name;
+  final String nameEn;
+  final String nameAr;
+
   final String description;
   final num price;
   final File image;
@@ -15,7 +17,7 @@ class Productmodel {
   final bool isOrganic;
   final int numbersOfCalories;
   final int unitAmount;
-  final int Selligcount;
+  final int sellingCount;
   final num averageRating = 0;
   final num ratingCount = 0;
   final List<ReviewModel> reviews;
@@ -25,21 +27,23 @@ class Productmodel {
     required this.reviews,
     required this.numbersOfCalories,
     required this.unitAmount,
-    required this.name,
+    required this.nameEn,
+    required this.nameAr,
     required this.isOrganic,
     required this.description,
     required this.price,
     required this.image,
-    this.Selligcount = 0,
+    this.sellingCount = 0,
     required this.code,
     required this.isfeatured,
     this.imageurl,
   });
   factory Productmodel.fromEntity(ProductEntity entity) {
     return Productmodel(
+      nameAr: entity.nameAr,
       reviews: entity.reviews.map((e) => ReviewModel.fromEntity(e)).toList(),
       isOrganic: entity.isOrganic,
-      name: entity.name,
+      nameEn: entity.nameEn,
       experationMonths: entity.experationMonths,
       numbersOfCalories: entity.numbersOfCalories,
       unitAmount: entity.unitAmount,
@@ -53,10 +57,11 @@ class Productmodel {
     );
   }
   toJson() => {
-    'name': name,
+    'nameAr': nameAr,
+    'nameEn': nameEn,
     'description': description,
     'price': price,
-    'Selligcount': Selligcount,
+    'sellingCount': sellingCount,
     'code': code,
     'isfeatured': isfeatured,
     'imageurl': imageurl,

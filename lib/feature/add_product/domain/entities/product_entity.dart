@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:fruits_hub_dashboard/feature/add_product/domain/entities/review_entity.dart';
 
 class ProductEntity {
-  final String name;
+  final String nameEn;
+  final String nameAr;
   final String description;
   final num price;
   final File image;
@@ -22,7 +23,8 @@ class ProductEntity {
     required this.experationMonths,
     required this.unitAmount,
     required this.numbersOfCalories,
-    required this.name,
+    required this.nameEn,
+    required this.nameAr,
     required this.description,
     required this.reviews,
     required this.price,
