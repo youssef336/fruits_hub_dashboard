@@ -1,13 +1,14 @@
-import '../../feature/orders/data/models/order_model.dart';
-import '../../feature/orders/data/models/order_product_model.dart';
-import '../../feature/orders/data/models/shipping_address_model.dart';
+import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_product_entity.dart';
 
-OrderModel getDummyOrder() {
-  return OrderModel(
+import '../../feature/orders/domain/entieties/order_entity.dart';
+import '../../feature/orders/domain/entieties/shipping_address_entity.dart';
+
+OrderEntity getDummyOrder() {
+  return OrderEntity(
     uID: 'ORD123456789',
     totalPrice: 149.97,
     paymentMethod: 'Cash',
-    shippingAddress: ShippingAddressModel(
+    shippingAddress: ShippingAddressEntity(
       address: '123 Main Street',
       floor: '2',
       city: 'Cairo',
@@ -16,7 +17,7 @@ OrderModel getDummyOrder() {
       email: 'john.doe@example.com',
     ),
     orderProducts: [
-      OrderProductModel(
+      OrderProductEntity(
         nameEn: 'Wireless Headphones',
         nameAr: 'سماعات لاسلكية',
         imageUrl:
@@ -25,7 +26,7 @@ OrderModel getDummyOrder() {
         price: 49.99,
         quantity: 1,
       ),
-      OrderProductModel(
+      OrderProductEntity(
         nameEn: 'Gaming Mouse',
         nameAr: 'ماوس ألعاب',
         imageUrl:

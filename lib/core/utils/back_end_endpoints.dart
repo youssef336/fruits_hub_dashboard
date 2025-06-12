@@ -4,4 +4,5 @@ class BackEndEndpoints {
   static const String getUserData = 'users';
   static const String checkifUserDataExists = 'users';
   static const String addproduct = 'products';
+  static const String getOrder = 'orders';
 }

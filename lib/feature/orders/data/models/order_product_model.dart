@@ -1,3 +1,5 @@
+import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_product_entity.dart';
+
 class OrderProductModel {
   final String nameEn;
   final String nameAr;
@@ -31,4 +33,12 @@ class OrderProductModel {
     'price': price,
     'quantity': quantity,
   };
+  OrderProductEntity toEntity() => OrderProductEntity(
+    nameEn: nameEn,
+    nameAr: nameAr,
+    imageUrl: imageUrl,
+    code: code,
+    price: price,
+    quantity: quantity,
+  );
 }

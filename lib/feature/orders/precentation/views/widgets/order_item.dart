@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../../data/models/order_model.dart';
-import '../../../data/models/order_product_model.dart';
+import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_entity.dart';
+import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_product_entity.dart';
 
 class OrderItemWidget extends StatelessWidget {
-  final OrderModel order;
+  final OrderEntity order;
 
   const OrderItemWidget({super.key, required this.order});
 
@@ -57,7 +56,7 @@ class OrderItemWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildProductItem(OrderProductModel product) {
+  Widget _buildProductItem(OrderProductEntity product) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
