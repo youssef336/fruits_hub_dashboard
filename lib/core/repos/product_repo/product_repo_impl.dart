@@ -20,7 +20,7 @@ class AddProductRepoImpl implements AddProductRepo {
       );
       return right(null);
     } catch (e) {
-      return left(ServerFailure("Failed to add product"));
+      return left(const ServerFailure("Failed to add product"));
     }
   }
 }

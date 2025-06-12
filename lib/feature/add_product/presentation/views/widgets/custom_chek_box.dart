@@ -31,7 +31,7 @@ class CustomChekBox extends StatelessWidget {
         ),
         child:
             isChecked
-                ? Icon(Icons.check, color: Colors.white)
+                ? const Icon(Icons.check, color: Colors.white)
                 : const SizedBox.shrink(),
       ),
     );

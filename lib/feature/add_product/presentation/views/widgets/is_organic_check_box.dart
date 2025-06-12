@@ -27,7 +27,7 @@ class _IsOrganicCheckBoxState extends State<IsOrganicCheckBox> {
             textAlign: TextAlign.left,
           ),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         CustomChekBox(
           onChanged: (value) {
             isTermsAccepted = value;

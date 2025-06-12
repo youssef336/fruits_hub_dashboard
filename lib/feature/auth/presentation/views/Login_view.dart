@@ -14,7 +14,7 @@ class LoginView extends StatelessWidget {
       body: Center(
         child: BlocProvider(
           create: (context) => LoginCubit(getIt.get<LoginRepo>()),
-          child: LoginViewBodyBlocConsumer(),
+          child: const LoginViewBodyBlocConsumer(),
         ),
       ),
     );

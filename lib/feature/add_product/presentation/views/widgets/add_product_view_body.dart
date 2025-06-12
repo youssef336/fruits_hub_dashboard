@@ -45,7 +45,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 textInputType: TextInputType.text,
               ),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   nameAr = p0!;
@@ -53,7 +53,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Product Name in Arabic',
                 textInputType: TextInputType.text,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   price = num.parse(p0!);
@@ -61,7 +61,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Product Price',
                 textInputType: TextInputType.number,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   exparationMonth = num.parse(p0!);
@@ -69,7 +69,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Exparation Month',
                 textInputType: TextInputType.number,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   numberOfCalories = num.parse(p0!);
@@ -77,7 +77,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Number Of Calories',
                 textInputType: TextInputType.number,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   unitAmount = num.parse(p0!);
@@ -85,7 +85,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Unit Amount',
                 textInputType: TextInputType.number,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   code = p0!.toLowerCase();
@@ -93,7 +93,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 hintText: 'Product code',
                 textInputType: TextInputType.text,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               CustomTextFormFeild(
                 onSaved: (p0) {
                   description = p0!;
@@ -102,25 +102,25 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                 textInputType: TextInputType.text,
                 maxLines: 5,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               FeatureProductCheckBox(
                 onChanged: (value) {
                   isFeatureProduct = value;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               IsOrganicCheckBox(
                 onChanged: (value) {
                   isOrganic = value;
                 },
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ImageFeild(
                 onImageSelected: (image) {
                   this.image = image;
                 },
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               CustomButtom(
                 text: "AddProduct",
                 onPressed: () {
@@ -148,7 +148,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                   }
                 },
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
             ],
           ),
         ),
@@ -158,7 +158,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
 
   void snowError(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Please Select Image'),
         backgroundColor: Colors.red,
       ),

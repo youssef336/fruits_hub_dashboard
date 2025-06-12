@@ -46,7 +46,7 @@ class _ImageFeildState extends State<ImageFeild> {
                         borderRadius: BorderRadius.circular(16),
                         child: Image.file(fileImage!),
                       )
-                      : Icon(size: 180, Icons.image_outlined),
+                      : const Icon(size: 180, Icons.image_outlined),
             ),
             Visibility(
               visible: fileImage != null,
@@ -56,7 +56,7 @@ class _ImageFeildState extends State<ImageFeild> {
                   widget.onImageSelected(fileImage);
                   setState(() {});
                 },
-                icon: Icon(Icons.close, color: Colors.red),
+                icon: const Icon(Icons.close, color: Colors.red),
               ),
             ),
           ],
