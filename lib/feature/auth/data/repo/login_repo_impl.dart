@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:fruits_hub_dashboard/core/errors/failures.dart';
-import 'package:fruits_hub_dashboard/core/services/auth_service.dart';
+import 'package:fruits_hub_dashboard/core/services/mains/auth_service.dart';
 import 'package:fruits_hub_dashboard/feature/auth/domain/repo/login_repo.dart';
 
 import '../../../../core/services/app_user.dart';

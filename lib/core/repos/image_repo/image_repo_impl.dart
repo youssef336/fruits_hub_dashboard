@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:fruits_hub_dashboard/core/errors/failures.dart';
 import 'package:fruits_hub_dashboard/core/repos/image_repo/image_repo.dart';
-import 'package:fruits_hub_dashboard/core/services/storage_service.dart';
+import 'package:fruits_hub_dashboard/core/services/mains/storage_service.dart';
 import 'package:fruits_hub_dashboard/core/utils/back_end_endpoints.dart';
 
 class ImageRepoImpl implements ImageRepo {

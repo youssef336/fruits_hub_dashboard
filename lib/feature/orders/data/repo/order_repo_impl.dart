@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import 'package:fruits_hub_dashboard/core/errors/failures.dart';
-import 'package:fruits_hub_dashboard/core/services/database_servies.dart';
+import 'package:fruits_hub_dashboard/core/services/mains/database_servies.dart';
 
 import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_entity.dart';
 

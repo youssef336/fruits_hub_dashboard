@@ -1,5 +1,5 @@
 import 'package:fruits_hub_dashboard/core/services/app_user.dart';
-import 'package:fruits_hub_dashboard/core/services/auth_service.dart';
+import 'package:fruits_hub_dashboard/core/services/mains/auth_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupadaseAuth implements AuthService {

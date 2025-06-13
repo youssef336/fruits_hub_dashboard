@@ -1,27 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_hub_dashboard/core/helper_functions/get_order_dummy_data.dart';
-import 'package:fruits_hub_dashboard/feature/orders/presentation/views/widgets/order_view_body.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../core/services/get_it_service.dart';
-import '../../domain/repo/order_repo.dart';
-import '../../presentation/manager/cubits/fetchorder/fetch_order_cubit.dart';
-
-class OrderView extends StatelessWidget {
-  const OrderView({super.key});
-  static const String routeName = '/oreder-view';
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => FetchorderCubit(getIt.get<OrderRepo>()),
-      child: Scaffold(
-        appBar: AppBar(centerTitle: true, title: const Text('Orders')),
-        body: const OrderViewBodyBlocBuilder(),
-      ),
-    );
-  }
-}
+import '../../../../../core/helper_functions/get_order_dummy_data.dart';
+import '../../manager/cubits/fetchorder/fetch_order_cubit.dart';
+import 'order_view_body.dart';
 
 class OrderViewBodyBlocBuilder extends StatefulWidget {
   const OrderViewBodyBlocBuilder({super.key});

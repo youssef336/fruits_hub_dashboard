@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruits_hub_dashboard/core/services/app_user.dart';
-import 'package:fruits_hub_dashboard/core/services/auth_service.dart';
+import 'package:fruits_hub_dashboard/core/services/mains/auth_service.dart';
 
 class FirebaseAuthService implements AuthService {
   final auth = FirebaseAuth.instance;

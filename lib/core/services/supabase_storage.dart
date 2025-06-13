@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:fruits_hub_dashboard/constant.dart';
-import 'package:fruits_hub_dashboard/core/services/storage_service.dart';
+import 'package:fruits_hub_dashboard/core/services/mains/storage_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:path/path.dart' as b;
 
