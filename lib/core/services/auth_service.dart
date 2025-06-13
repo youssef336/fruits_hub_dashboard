@@ -1,5 +1,5 @@
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:fruits_hub_dashboard/core/services/app_user.dart';
 
 abstract class AuthService {
-  Future<User> login(String email, String password);
+  Future<AppUser> signIn(String email, String password);
 }

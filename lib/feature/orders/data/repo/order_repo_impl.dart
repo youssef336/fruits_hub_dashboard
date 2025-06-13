@@ -21,7 +21,9 @@ class OrderRepoImpl implements OrderRepo {
         path: BackEndEndpoints.getOrder,
       );
       List<OrderEntity> orders =
-          data.map((e) => OrderModel.fromJson(e).toEntity()).toList();
+          (data as List<dynamic>)
+              .map((e) => OrderModel.fromJson(e).toEntity())
+              .toList();
 
       return Right(orders);
     } catch (e) {

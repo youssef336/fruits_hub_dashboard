@@ -6,7 +6,7 @@ import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../core/services/get_it_service.dart';
 import '../../domain/repo/order_repo.dart';
-import '../../presentation/manager/cubits/fetchorder/fetch_order_cubit.dart';
+import '../manager/cubits/fetchorder/fetch_order_cubit.dart';
 
 class OrderView extends StatelessWidget {
   const OrderView({super.key});

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_hub_dashboard/feature/orders/data/models/order_model.dart';
 import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_entity.dart';
-import 'package:fruits_hub_dashboard/feature/orders/precentation/views/widgets/order_item.dart';
+import 'package:fruits_hub_dashboard/feature/orders/presentation/views/widgets/order_item.dart';
 
 class OrderItemListView extends StatelessWidget {
   const OrderItemListView({super.key, required this.orderList});

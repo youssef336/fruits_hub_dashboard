@@ -3,9 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fruits_hub_dashboard/core/services/custom_bolc_observer.dart';
+import 'package:fruits_hub_dashboard/core/services/firebase_auth.dart';
 import 'package:fruits_hub_dashboard/core/services/get_it_service.dart';
 import 'package:fruits_hub_dashboard/core/services/supabase_storage.dart';
-import 'package:fruits_hub_dashboard/core/services/supadase_auth.dart';
+
 import 'package:fruits_hub_dashboard/feature/auth/presentation/views/Login_view.dart';
 import 'package:fruits_hub_dashboard/feature/home/presentation/views/dashboard_view.dart';
 import 'package:fruits_hub_dashboard/firebase_options.dart';

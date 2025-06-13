@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_buttom.dart';
 import 'package:fruits_hub_dashboard/feature/add_product/presentation/views/add_product_view.dart';
 
-import '../../../../orders/precentation/views/oreder_view.dart';
-import '../../../../orders/precentation/views/widgets/order_view_body.dart';
+import '../../../../orders/presentation/views/oreder_view.dart';
 
 class DashboardViewBody extends StatelessWidget {
   const DashboardViewBody({super.key});
