@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:fruits_hub_dashboard/core/services/app_user.dart';
 import 'package:fruits_hub_dashboard/core/services/mains/auth_service.dart';
 
@@ -9,11 +10,14 @@ class FirebaseAuthService implements AuthService {
 
   @override
   Future<AppUser> signIn(String email, String password) async {
+    // Check if the provided credentials match your hardcoded values
+
     try {
       final credential = await auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
+
       return AppUser(id: credential.user!.uid, email: credential.user!.email!);
     } on FirebaseAuthException catch (e) {
       log(
@@ -34,6 +38,6 @@ class FirebaseAuthService implements AuthService {
   }
 }
 
-bool isUserLoggedIn() {
-  return FirebaseAuth.instance.currentUser != null;
-}
+// bool isUserLoggedIn() {
+//   return FirebaseAuth.instance.currentUser != null;
+// }
