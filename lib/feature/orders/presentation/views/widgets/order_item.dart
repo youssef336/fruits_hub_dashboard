@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_entity.dart';
 import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_product_entity.dart';
 
+import '../../../../../core/enums/order_enum.dart';
+
 class OrderItemWidget extends StatelessWidget {
   final OrderEntity order;
 
@@ -9,6 +11,7 @@ class OrderItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String deliveryCost = order.paymentMethod == "PayPal" ? "Free" : "40\$";
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       elevation: 4,
@@ -18,12 +21,56 @@ class OrderItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// Order Info
-            Text(
-              'Order ID: ${order.uID}',
-              style: Theme.of(context).textTheme.titleMedium,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Total Price
+                Row(
+                  children: [
+                    const Icon(Icons.attach_money, color: Colors.green),
+                    const SizedBox(width: 4),
+                    Text(
+                      '\$${order.totalPrice.toStringAsFixed(2)}',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Status Badge
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: _getStatusColor(order.status),
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      const BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    order.status.name.toUpperCase(),
+                    style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1.1,
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Text('Total Price: \$${order.totalPrice.toStringAsFixed(2)}'),
+            Text('Order ID: ${order.uID}'),
+
             Text('Payment Method: ${order.paymentMethod}'),
+            Text('deliveryCost: $deliveryCost'),
 
             const SizedBox(height: 12),
 
@@ -95,5 +142,19 @@ class OrderItemWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Color _getStatusColor(OrderEnum status) {
+    switch (status) {
+      case OrderEnum.pending:
+        return Colors.orange;
+      case OrderEnum.accepted:
+        return Colors.green;
+      case OrderEnum.delivered:
+      case OrderEnum.canceled:
+        return Colors.red;
+      default:
+        return Colors.grey;
+    }
   }
 }

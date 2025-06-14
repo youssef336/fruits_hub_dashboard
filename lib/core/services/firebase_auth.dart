@@ -38,6 +38,6 @@ class FirebaseAuthService implements AuthService {
   }
 }
 
-// bool isUserLoggedIn() {
-//   return FirebaseAuth.instance.currentUser != null;
-// }
+bool isUserLoggedIn() {
+  return FirebaseAuth.instance.currentUser != null;
+}

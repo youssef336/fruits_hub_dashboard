@@ -2,9 +2,11 @@ import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_produ
 
 import '../../feature/orders/domain/entieties/order_entity.dart';
 import '../../feature/orders/domain/entieties/shipping_address_entity.dart';
+import '../enums/order_enum.dart';
 
 OrderEntity getDummyOrder() {
   return OrderEntity(
+    status: OrderEnum.delivered,
     uID: 'ORD123456789',
     totalPrice: 149.97,
     paymentMethod: 'Cash',
