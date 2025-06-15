@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'package:dartz/dartz.dart';
+import 'package:fruits_hub_dashboard/core/errors/failures.dart';
+
 abstract class DatabaseServies {
   Future<void> addData({
     required String path,
@@ -22,5 +26,9 @@ abstract class DatabaseServies {
   Future<bool> checkifDataExists({
     required String path,
     required String documentId,
+  });
+  Future<Either<Failure, String>> uploadFile({
+    required String path,
+    required File file,
   });
 }

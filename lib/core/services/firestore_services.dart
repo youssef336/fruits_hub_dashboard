@@ -1,8 +1,14 @@
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:dartz/dartz.dart';
+import 'package:fruits_hub_dashboard/core/errors/failures.dart';
 import 'package:fruits_hub_dashboard/core/services/mains/database_servies.dart';
 
 class FirestoreServices implements DatabaseServies {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
+  FirebaseStorage storage = FirebaseStorage.instance;
+
   @override
   Future<void> addData({
     required String path,
@@ -50,6 +56,21 @@ class FirestoreServices implements DatabaseServies {
   }) async {
     var data = await firestore.collection(path).doc(documentId).get();
     return data.exists;
+  }
+
+  @override
+  Future<Either<Failure, String>> uploadFile({
+    required String path,
+    required File file,
+  }) async {
+    try {
+      final ref = storage.ref().child(path);
+      final uploadTask = await ref.putFile(file);
+      final downloadUrl = await uploadTask.ref.getDownloadURL();
+      return Right(downloadUrl);
+    } catch (e) {
+      return Left(ServerFailure(e.toString()));
+    }
   }
 
   @override

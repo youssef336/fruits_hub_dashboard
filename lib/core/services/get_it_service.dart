@@ -15,6 +15,9 @@ import 'package:get_it/get_it.dart';
 
 import '../../feature/orders/data/repo/order_repo_impl.dart';
 import '../../feature/orders/domain/repo/order_repo.dart';
+import '../../feature/notification/data/repo/notification_repo_impl.dart';
+import '../../feature/notification/domain/repo/notification_repo.dart';
+import '../../feature/notification/domain/usecases/add_notification.dart';
 
 final getIt = GetIt.instance;
 
@@ -35,4 +38,8 @@ void setupGetIt() {
   getIt.registerLazySingleton<LoginRepo>(
     () => LoginRepoImpl(getIt.get<AuthService>()),
   );
+  
+  // Register notification dependencies
+  getIt.registerLazySingleton<NotificationRepo>(() => NotificationRepoImpl(getIt.get<DatabaseServies>()));
+  getIt.registerLazySingleton<AddNotification>(() => AddNotification(getIt.get<NotificationRepo>()));
 }

@@ -6,6 +6,7 @@ import '../../../../core/errors/failures.dart';
 
 abstract class OrderRepo {
   Stream<Either<Failure, List<OrderEntity>>> fetchOrderss();
+  Stream<Either<Failure, List<OrderEntity>>> fetchOrderssSortedByDate();
 
   Future<Either<Failure, void>> updateOrderStatus({
     required OrderEnum status,

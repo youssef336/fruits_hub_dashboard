@@ -21,6 +21,16 @@ class FetchorderCubit extends Cubit<FetchorderState> {
     });
   }
 
+  void fetchOrdersSortedByDate() {
+    emit(FetchorderLoading());
+    _subscription = orderRepo.fetchOrderssSortedByDate().listen((result) {
+      result.fold(
+        (l) => emit(FetchorderError(l.message)),
+        (r) => emit(FetchorderSuccess(r)),
+      );
+    });
+  }
+
   @override
   Future<void> close() async {
     await _subscription?.cancel();
