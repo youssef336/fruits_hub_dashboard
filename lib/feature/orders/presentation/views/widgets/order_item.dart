@@ -3,6 +3,7 @@ import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_entit
 import 'package:fruits_hub_dashboard/feature/orders/domain/entieties/order_product_entity.dart';
 
 import '../../../../../core/enums/order_enum.dart';
+import 'order_action_buttom.dart';
 
 class OrderItemWidget extends StatelessWidget {
   final OrderEntity order;
@@ -67,7 +68,7 @@ class OrderItemWidget extends StatelessWidget {
                 ),
               ],
             ),
-            Text('Order ID: ${order.uID}'),
+            Text('User ID: ${order.uID}'),
 
             Text('Payment Method: ${order.paymentMethod}'),
             Text('deliveryCost: $deliveryCost'),
@@ -97,6 +98,8 @@ class OrderItemWidget extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             ...order.orderProducts.map((product) => _buildProductItem(product)),
+            const SizedBox(height: 16),
+            OrderActionButtom(order: order),
           ],
         ),
       ),
@@ -151,6 +154,7 @@ class OrderItemWidget extends StatelessWidget {
       case OrderEnum.accepted:
         return Colors.green;
       case OrderEnum.delivered:
+        return Colors.blue;
       case OrderEnum.canceled:
         return Colors.red;
       default:

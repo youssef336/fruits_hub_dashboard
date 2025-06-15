@@ -6,6 +6,7 @@ import '../enums/order_enum.dart';
 
 OrderEntity getDummyOrder() {
   return OrderEntity(
+    orderId: 'ORD123456789',
     status: OrderEnum.delivered,
     uID: 'ORD123456789',
     totalPrice: 149.97,

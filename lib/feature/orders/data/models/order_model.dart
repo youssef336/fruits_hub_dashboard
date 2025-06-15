@@ -11,8 +11,10 @@ class OrderModel {
   final List<OrderProductModel> orderProducts;
   final String paymentMethod;
   final String? status;
+  final String orderId;
 
   OrderModel({
+    required this.orderId,
     required this.status,
     required this.uID,
     required this.totalPrice,
@@ -22,6 +24,7 @@ class OrderModel {
   });
   factory OrderModel.fromJson(Map<String, dynamic> json) => OrderModel(
     uID: json['uID'],
+    orderId: json['orderId'],
     status: json['status'],
     totalPrice: json['totalPrice'],
     shippingAddress: ShippingAddressModel.fromJson(json['shippingAddress']),
@@ -33,6 +36,7 @@ class OrderModel {
   toJson() => {
     'uID': uID,
     'totalPrice': totalPrice,
+    'orderId': orderId,
     'status': 'Pending',
     'date': DateTime.now().toString(),
     'shippingAddress': shippingAddress.toJson(),
@@ -41,6 +45,7 @@ class OrderModel {
   };
 
   OrderEntity toEntity() => OrderEntity(
+    orderId: orderId,
     uID: uID,
     totalPrice: totalPrice,
     status: fetchEnum(),
