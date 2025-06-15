@@ -48,4 +48,24 @@ class OrderRepoImpl implements OrderRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Stream<Either<Failure, List<OrderEntity>>> fetchOrderssSortedByDate() async* {
+    try {
+      await for (var (data as List<Map<String, dynamic>>) in databaseServies
+          .streamData(
+            path: BackEndEndpoints.getOrder,
+            query: {'orderBy': 'date', 'descending': false},
+          )) {
+        List<OrderEntity> orders =
+            (data as List<dynamic>)
+                .map((e) => OrderModel.fromJson(e).toEntity())
+                .toList();
+
+        yield Right(orders);
+      }
+    } catch (e) {
+      yield Left(ServerFailure(e.toString()));
+    }
+  }
 }
