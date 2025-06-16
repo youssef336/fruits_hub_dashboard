@@ -1,11 +1,16 @@
+import 'dart:io';
+
 class NotificationEntity {
   final String description;
-  final String imageUrl;
+  String? imageUrl;
+  final File image;
+
   final DateTime date;
 
   NotificationEntity({
+    required this.image,
     required this.description,
-    required this.imageUrl,
+    this.imageUrl,
     required this.date,
   });
 }

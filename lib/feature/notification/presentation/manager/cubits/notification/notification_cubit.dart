@@ -1,27 +1,37 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_hub_dashboard/feature/notification/domain/usecases/add_notification.dart';
+import 'package:fruits_hub_dashboard/feature/notification/domain/entities/notification_entity.dart';
+
 import 'package:fruits_hub_dashboard/feature/notification/presentation/manager/cubits/notification/notification_state.dart';
-import 'dart:io';
+
+import '../../../../../../core/repos/notification_image_repo/notification_image_repo.dart';
+
+import '../../../../domain/repo/notification_repo.dart';
 
 class NotificationCubit extends Cubit<NotificationState> {
-  final AddNotification _addNotification;
+  NotificationCubit(this.imageRepo, this.notificationRepo)
+    : super(const NotificationInitial());
+  final NotificationImageRepo imageRepo;
+  final NotificationRepo notificationRepo;
 
-  NotificationCubit(this._addNotification) : super(const NotificationInitial());
-
-  Future<void> addNotification({
-    required String description,
-    required File image,
-    required DateTime date,
-  }) async {
-    emit(const NotificationLoading());
-
-    final result = await _addNotification(
-      AddNotificationParams(description: description, image: image, date: date),
-    );
-
+  Future<void> addNotification(
+    NotificationEntity addNotificationInputEntity,
+  ) async {
+    emit((const NotificationLoading()));
+    var result = await imageRepo.uploadImage(addNotificationInputEntity.image);
     result.fold(
       (failure) => emit(NotificationFailure(message: failure.message)),
-      (_) => emit(const NotificationSuccess()),
+      (url) async {
+        addNotificationInputEntity.imageUrl = url;
+        var result = await notificationRepo.addNotification(
+          notificationEntity: addNotificationInputEntity,
+        );
+        result.fold(
+          (failure) => emit(NotificationFailure(message: failure.message)),
+          (r) {
+            emit(const NotificationSuccess());
+          },
+        );
+      },
     );
   }
 }

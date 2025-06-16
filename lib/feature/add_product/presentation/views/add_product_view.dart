@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruits_hub_dashboard/core/repos/image_repo/image_repo.dart';
+import 'package:fruits_hub_dashboard/core/repos/product_image_repo/image_repo.dart';
 import 'package:fruits_hub_dashboard/core/repos/product_repo/product_repo.dart';
 import 'package:fruits_hub_dashboard/core/services/get_it_service.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_app_bar.dart';

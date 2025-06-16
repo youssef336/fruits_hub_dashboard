@@ -157,8 +157,6 @@ class OrderItemWidget extends StatelessWidget {
         return Colors.blue;
       case OrderEnum.canceled:
         return Colors.red;
-      default:
-        return Colors.grey;
     }
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:bloc/bloc.dart';
 import 'package:fruits_hub_dashboard/feature/orders/domain/repo/order_repo.dart';
 import 'package:meta/meta.dart';

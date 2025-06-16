@@ -1,5 +1,5 @@
-import 'package:fruits_hub_dashboard/core/repos/image_repo/image_repo.dart';
-import 'package:fruits_hub_dashboard/core/repos/image_repo/image_repo_impl.dart';
+import 'package:fruits_hub_dashboard/core/repos/product_image_repo/image_repo.dart';
+import 'package:fruits_hub_dashboard/core/repos/product_image_repo/image_repo_impl.dart';
 import 'package:fruits_hub_dashboard/core/repos/product_repo/product_repo.dart';
 import 'package:fruits_hub_dashboard/core/repos/product_repo/product_repo_impl.dart';
 import 'package:fruits_hub_dashboard/core/services/mains/auth_service.dart';
@@ -17,7 +17,8 @@ import '../../feature/orders/data/repo/order_repo_impl.dart';
 import '../../feature/orders/domain/repo/order_repo.dart';
 import '../../feature/notification/data/repo/notification_repo_impl.dart';
 import '../../feature/notification/domain/repo/notification_repo.dart';
-import '../../feature/notification/domain/usecases/add_notification.dart';
+import '../repos/notification_image_repo/notification_image_repo.dart';
+import '../repos/notification_image_repo/notification_image_repo_impl.dart';
 
 final getIt = GetIt.instance;
 
@@ -31,6 +32,9 @@ void setupGetIt() {
   getIt.registerLazySingleton<ImageRepo>(
     () => ImageRepoImpl(getIt.get<StorageService>()),
   );
+  getIt.registerLazySingleton<NotificationImageRepo>(
+    () => NotificationImageRepoImpl(getIt.get<StorageService>()),
+  );
   getIt.registerLazySingleton<OrderRepo>(
     () => OrderRepoImpl(getIt.get<DatabaseServies>()),
   );
@@ -38,8 +42,9 @@ void setupGetIt() {
   getIt.registerLazySingleton<LoginRepo>(
     () => LoginRepoImpl(getIt.get<AuthService>()),
   );
-  
+
   // Register notification dependencies
-  getIt.registerLazySingleton<NotificationRepo>(() => NotificationRepoImpl(getIt.get<DatabaseServies>()));
-  getIt.registerLazySingleton<AddNotification>(() => AddNotification(getIt.get<NotificationRepo>()));
+  getIt.registerLazySingleton<NotificationRepo>(
+    () => NotificationRepoImpl(getIt.get<DatabaseServies>()),
+  );
 }

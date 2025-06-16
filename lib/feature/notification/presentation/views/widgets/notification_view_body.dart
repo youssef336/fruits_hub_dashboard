@@ -6,6 +6,7 @@ import 'package:fruits_hub_dashboard/feature/notification/presentation/manager/c
 import 'dart:io';
 
 import '../../../../add_product/presentation/views/widgets/image_feild.dart';
+import '../../../domain/entities/notification_entity.dart';
 
 class NotificationViewBody extends StatefulWidget {
   const NotificationViewBody({super.key});
@@ -18,7 +19,8 @@ class _NotificationViewBodyState extends State<NotificationViewBody> {
   final _formKey = GlobalKey<FormState>();
   String? _description;
   File? _image;
-  DateTime _date = DateTime.now();
+  final DateTime _date = DateTime.now();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +51,21 @@ class _NotificationViewBodyState extends State<NotificationViewBody> {
               const SizedBox(height: 16),
               if (state is NotificationSuccess)
                 const Text('Notification sent successfully!'),
-              if (state is NotificationFailure)
-                Text('Error: ${state.message}'),
+              if (state is NotificationFailure) Text('Error: ${state.message}'),
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     if (_image != null) {
                       context.read<NotificationCubit>().addNotification(
-                        description: _description!,
-                        image: _image!,
-                        date: _date,
+                        NotificationEntity(
+                          description: _description!,
+                          image: _image!,
+                          date: _date,
+                        ),
                       );
+                    } else {
+                      autovalidateMode = AutovalidateMode.always;
                     }
                   }
                 },
