@@ -8,6 +8,7 @@ abstract class DatabaseServies {
     required Map<String, dynamic> data,
     String? documentId,
   });
+
   Future<dynamic> getData({
     required String path,
     String? docuementId,
@@ -22,6 +23,10 @@ abstract class DatabaseServies {
     required String path,
     required Map<String, dynamic> data,
     String? documentId,
+  });
+  Future<void> deleteData({
+    required String path,
+    required String id,
   });
   Future<bool> checkifDataExists({
     required String path,
