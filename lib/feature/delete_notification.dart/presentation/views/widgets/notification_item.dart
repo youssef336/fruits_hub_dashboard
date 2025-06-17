@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_hub_dashboard/feature/delete_notification.dart/presentation/manager/cubits/notificationcubit/notificationcubit_cubit.dart';
 import 'package:fruits_hub_dashboard/feature/delete_notification.dart/presentation/manager/cubits/notificationcubitdeletecubit/notificationcubitdeletecubit_cubit.dart';
-import 'package:fruits_hub_dashboard/feature/notification/presentation/manager/cubits/notification/notification_cubit.dart';
 
 import 'package:intl/intl.dart';
 

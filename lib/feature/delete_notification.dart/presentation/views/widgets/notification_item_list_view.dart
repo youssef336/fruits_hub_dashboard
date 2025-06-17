@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/feature/delete_notification.dart/domain/entities/notification_entity.dart';
-import 'package:fruits_hub_dashboard/feature/delete_notification.dart/presentation/views/widgets/delete_block_builder.dart';
 
 import 'notification_item.dart';
 
