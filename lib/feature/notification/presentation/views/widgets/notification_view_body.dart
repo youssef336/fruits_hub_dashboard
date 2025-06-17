@@ -18,6 +18,8 @@ class NotificationViewBody extends StatefulWidget {
 class _NotificationViewBodyState extends State<NotificationViewBody> {
   final _formKey = GlobalKey<FormState>();
   String? _description;
+  String? descriptioninArabic;
+
   File? _image;
   final DateTime _date = DateTime.now();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
@@ -30,48 +32,58 @@ class _NotificationViewBodyState extends State<NotificationViewBody> {
           return const Center(child: CircularProgressIndicator());
         }
 
-        return Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              const SizedBox(height: 16),
-              CustomTextFormFeild(
-                hintText: "Description",
-                textInputType: TextInputType.text,
-                onSaved: (value) => _description = value,
-              ),
-              const SizedBox(height: 16),
-              ImageFeild(
-                onImageSelected: (value) {
-                  setState(() {
-                    _image = value;
-                  });
-                },
-              ),
-              const SizedBox(height: 16),
-              if (state is NotificationSuccess)
-                const Text('Notification sent successfully!'),
-              if (state is NotificationFailure) Text('Error: ${state.message}'),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                    if (_image != null) {
-                      context.read<NotificationCubit>().addNotification(
-                        NotificationEntity(
-                          description: _description!,
-                          image: _image!,
-                          date: _date,
-                        ),
-                      );
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
+        return SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                const SizedBox(height: 16),
+                CustomTextFormFeild(
+                  hintText: "Description in English",
+                  textInputType: TextInputType.text,
+                  onSaved: (value) => _description = value,
+                ),
+                const SizedBox(height: 16),
+                CustomTextFormFeild(
+                  hintText: "Description in Arabic",
+                  textInputType: TextInputType.text,
+                  onSaved: (value) => descriptioninArabic = value,
+                ),
+                const SizedBox(height: 16),
+                ImageFeild(
+                  onImageSelected: (value) {
+                    setState(() {
+                      _image = value;
+                    });
+                  },
+                ),
+                const SizedBox(height: 16),
+                if (state is NotificationSuccess)
+                  const Text('Notification sent successfully!'),
+                if (state is NotificationFailure)
+                  Text('Error: ${state.message}'),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      if (_image != null) {
+                        context.read<NotificationCubit>().addNotification(
+                          NotificationEntity(
+                            descriptionInArabic: descriptioninArabic!,
+                            descriptioninEnglish: _description!,
+                            image: _image!,
+                            date: _date,
+                          ),
+                        );
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                      }
                     }
-                  }
-                },
-                child: const Text('Send Notification'),
-              ),
-            ],
+                  },
+                  child: const Text('Send Notification'),
+                ),
+              ],
+            ),
           ),
         );
       },

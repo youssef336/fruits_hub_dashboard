@@ -11,6 +11,8 @@ import 'package:fruits_hub_dashboard/core/services/supabase_storage.dart';
 
 import 'package:fruits_hub_dashboard/feature/auth/data/repo/login_repo_impl.dart';
 import 'package:fruits_hub_dashboard/feature/auth/domain/repo/login_repo.dart';
+import 'package:fruits_hub_dashboard/feature/delete_notification.dart/data/repo/notification_repo_impl.dart';
+import 'package:fruits_hub_dashboard/feature/delete_notification.dart/domain/repo/notification_repo.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../feature/orders/data/repo/order_repo_impl.dart';
@@ -46,5 +48,8 @@ void setupGetIt() {
   // Register notification dependencies
   getIt.registerLazySingleton<NotificationRepo>(
     () => NotificationRepoImpl(getIt.get<DatabaseServies>()),
+  );
+  getIt.registerLazySingleton<NotificationRepoDelete>(
+    () => NotificationRepoImplDelete(getIt.get<DatabaseServies>()),
   );
 }

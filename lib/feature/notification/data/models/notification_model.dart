@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:fruits_hub_dashboard/feature/notification/domain/entities/notification_entity.dart';
+import 'package:uuid/uuid.dart';
 
 class NotificationModel {
   final String descriptioninEnglish;
@@ -8,8 +9,9 @@ class NotificationModel {
   final String imageUrl;
   final DateTime date;
   final String descriptioninArabic;
-
+  final String notificationId;
   NotificationModel({
+    required this.notificationId,
     required this.descriptioninEnglish,
     required this.descriptioninArabic,
     required this.imageUrl,
@@ -20,6 +22,7 @@ class NotificationModel {
 
   Map<String, dynamic> toJson() {
     return {
+      'notificationId': notificationId,
       'descriptionEnglish': descriptioninEnglish,
       'descriptionArabic': descriptioninArabic,
       'image': imageUrl,
@@ -27,31 +30,13 @@ class NotificationModel {
     };
   }
 
-  factory NotificationModel.fromJson(Map<String, dynamic> json) {
-    return NotificationModel(
-      imageUrl: json['image'],
-      descriptioninEnglish: json['descriptionEnglish'],
-      descriptioninArabic: json['descriptionArabic'],
-      image: json['image'],
-      date: json['date'],
-    );
-  }
-
-  NotificationEntity toEntity() {
-    return NotificationEntity(
-      imageUrl: imageUrl,
-      descriptioninEnglish: descriptioninEnglish,
-      descriptionInArabic: descriptioninArabic,
-      image: image,
-      date: date,
-    );
-  }
-
   factory NotificationModel.fromEntity(NotificationEntity notificationEntity) {
     return NotificationModel(
+      notificationId: const Uuid().v4(),
+      descriptioninArabic: notificationEntity.descriptionInArabic,
       imageUrl: notificationEntity.imageUrl ?? '',
       descriptioninEnglish: notificationEntity.descriptioninEnglish,
-      descriptioninArabic: notificationEntity.descriptionInArabic,
+
       image: notificationEntity.image,
       date: notificationEntity.date,
     );

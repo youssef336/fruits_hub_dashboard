@@ -1,6 +1,8 @@
 class BackEndEndpoints {
-  static const String notifications = 'notifications';
+  static const String getNotifications = 'notifications';
   static const String deleteNotification = 'notifications';
+  static const String notifications = 'notifications';
+
   static const String imagePath = 'images';
   static const String notificationimagePath = 'Notificationimages';
   static const String addUserData = 'users';

@@ -105,10 +105,7 @@ class FirestoreServices implements DatabaseServies {
   }
 
   @override
-  Future<void> deleteData({
-    required String path,
-    required String id,
-  }) async {
+  Future<void> deleteData({required String path, required String id}) async {
     await firestore.collection(path).doc(id).delete();
   }
 }

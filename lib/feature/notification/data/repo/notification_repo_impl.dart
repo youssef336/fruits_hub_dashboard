@@ -16,41 +16,13 @@ class NotificationRepoImpl implements NotificationRepo {
     required NotificationEntity notificationEntity,
   }) async {
     try {
+      var orderModel = NotificationModel.fromEntity(notificationEntity);
       await databaseServies.addData(
         path: BackEndEndpoints.addNotification,
-        data: NotificationModel.fromEntity(notificationEntity).toJson(),
+        data: orderModel.toJson(),
+        documentId: orderModel.notificationId,
       );
       return const Right(null);
-    } catch (e) {
-      return Left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, void>> deleteNotification({
-    required String notificationId,
-  }) async {
-    try {
-      await databaseServies.deleteData(
-        path: BackEndEndpoints.deleteNotification,
-        id: notificationId,
-      );
-      return const Right(null);
-    } catch (e) {
-      return Left(ServerFailure(e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<NotificationEntity>>> fetchNotifications() async {
-    try {
-      var data = await databaseServies.getData(
-        path: BackEndEndpoints.notifications,
-      );
-      List<NotificationEntity> notifications = (data as List<dynamic>)
-          .map((e) => NotificationModel.fromJson(e).toEntity())
-          .toList();
-      return Right(notifications);
     } catch (e) {
       return Left(ServerFailure(e.toString()));
     }
