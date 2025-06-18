@@ -11,7 +11,7 @@ class NotificationModel {
   final String descriptioninArabic;
   final String notificationId;
   final String code;
-  final int discount;
+  final double discount;
   NotificationModel({
     required this.code,
     required this.discount,

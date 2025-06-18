@@ -6,7 +6,7 @@ class NotificationEntity {
   final File image;
   final String descriptionInArabic;
   final String code;
-  final int discount;
+  final double discount;
   final DateTime date;
 
   NotificationEntity({

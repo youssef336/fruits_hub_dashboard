@@ -21,7 +21,7 @@ class _NotificationViewBodyState extends State<NotificationViewBody> {
   String? _description;
   String? descriptioninArabic;
   String? code;
-  int? discount;
+  double? discount;
 
   File? _image;
   final DateTime _date = DateTime.now();
@@ -59,7 +59,7 @@ class _NotificationViewBodyState extends State<NotificationViewBody> {
                   CustomTextFormFeild(
                     hintText: "Discount",
                     textInputType: TextInputType.number,
-                    onSaved: (value) => discount = int.parse(value!),
+                    onSaved: (value) => discount = double.parse(value!),
                   ),
                   const SizedBox(height: 16),
 
