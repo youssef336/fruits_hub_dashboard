@@ -47,7 +47,6 @@ class MyApp extends StatelessWidget {
                   NotificationdeleteCubit(getIt.get<NotificationRepoDelete>()),
         ),
       ],
-
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         initialRoute:
