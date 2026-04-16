@@ -14,7 +14,17 @@ class LoginViewBody extends StatefulWidget {
 class _LoginViewBodyState extends State<LoginViewBody> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   late String email, password;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -26,6 +36,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomTextFormFeild(
+              controller: _emailController,
               hintText: "Email",
               textInputType: TextInputType.emailAddress,
               obscureText: false,
@@ -37,6 +48,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             ),
             const SizedBox(height: 20),
             CustomTextFormFeild(
+              controller: _passwordController,
               hintText: "Password",
               textInputType: TextInputType.visiblePassword,
               obscureText: true,
@@ -45,6 +57,36 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               onSaved: (p0) {
                 password = p0!;
               },
+            ),
+            const SizedBox(height: 16),
+            GestureDetector(
+              onTap: () {
+                _emailController.text = 'gg@gmail.com';
+                _passwordController.text = '123456789';
+              },
+              child: Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF5F5F5),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: const Color(0xFFD9D9D9)),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Demo Login For Portfolio Testing',
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                    SizedBox(height: 6),
+                    Text('Email: gg@gmail.com'),
+                    Text('Password: 123456789'),
+                    SizedBox(height: 4),
+                    Text('Tap here to auto-fill credentials'),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 20),
             CustomButtom(

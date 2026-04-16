@@ -8,6 +8,7 @@ class CustomTextFormFeild extends StatelessWidget {
     required this.textInputType,
     this.suffixIcon,
     this.onSaved,
+    this.controller,
     this.obscureText = false,
     this.maxLines = 1,
   });
@@ -15,11 +16,13 @@ class CustomTextFormFeild extends StatelessWidget {
   final TextInputType textInputType;
   final Widget? suffixIcon;
   final void Function(String?)? onSaved;
+  final TextEditingController? controller;
   final bool obscureText;
   final int? maxLines;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
       maxLines: maxLines,
       obscureText: obscureText,
       onSaved: onSaved,
