@@ -22,16 +22,20 @@ class _ImageFeildState extends State<ImageFeild> {
       enabled: isLoading,
       child: GestureDetector(
         onTap: () async {
-          isLoading = true;
-          setState(() {});
+          if (isLoading) return;
+          setState(() {
+            isLoading = true;
+          });
           try {
-            await Pickimage();
-          } on Exception {
-            isLoading = false;
-            setState(() {});
+            await pickImage();
+          } catch (_) {
+            // Keep UI responsive if the picker throws.
+          } finally {
+            if (!mounted) return;
+            setState(() {
+              isLoading = false;
+            });
           }
-          isLoading = false;
-          setState(() {});
         },
         child: Stack(
           children: [
@@ -67,11 +71,17 @@ class _ImageFeildState extends State<ImageFeild> {
     );
   }
 
-  Future<void> Pickimage() async {
+  Future<void> pickImage() async {
     final ImagePicker picker = ImagePicker();
-    // Pick an image.
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-    fileImage = File(image!.path);
+    if (image == null) {
+      return;
+    }
+
+    fileImage = File(image.path);
     widget.onImageSelected(fileImage);
+    if (mounted) {
+      setState(() {});
+    }
   }
 }
